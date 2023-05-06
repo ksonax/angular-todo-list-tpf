@@ -1,0 +1,33 @@
+<router-outlet>
+    <section class="vh-100" style="background-color: #eee;">
+        <div class="container">
+            <div class="card text-center col col-lg-12 col-xl-12">
+                <div class="card-header">
+                    <td *ngIf="customObject.done">
+                        <button type="submit" class="btn btn-success">Completed</button>
+                    </td>
+                    <td *ngIf="!customObject.done">
+                        <button type="submit" class="btn btn-secondary">In Progress</button>
+                    </td>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">#{{customObject.id}}: {{customObject.description}}</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id
+                        mollis
+                        lectus. Nam tincidunt, odio non eleifend venenatis, orci nulla malesuada libero, non
+                        vulputate tellus orci eget tortor. Vestibulum lacus est, eleifend vitae blandit
+                        sodales,
+                        mollis at risus. Duis ut dignissim nisl, ut aliquet massa. Cras malesuada ultricies
+                        blandit. Nulla quis lectus non magna maximus posuere ac sed turpis. Praesent mi
+                        metus,
+                        elementum non semper eget, laoreet ut erat.</p>
+                    <div class="form-outline">
+                        <button tpye="submit" class="btn btn-primary" routerLink="/todo-list" routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Go Back To
+                            List</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</router-outlet>

@@ -1,0 +1,51 @@
+<router-outlet>
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="m-0">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+
+            <h4 class="text-center my-3 pb-3">To Do App</h4>
+
+            <div class="col-12">
+              <div class="form-outline">
+                <input #newItem placeholder="add an item" (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+                  class="form-control text-center" id="addItemInput" />
+                <button class="btn btn-primary col-12" (click)="addItem(newItem.value)">Add</button>
+              </div>
+            </div>
+
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Todo item</th>
+                  <th scope="col">Completed</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items">
+                  <th scope="row">{{item.id}}</th>
+                  <td>{{item.description}}</td>
+                  <td *ngIf="item.done">
+                    <button type="submit" (click)="changeState(item.id)" class="btn btn-success">Completed</button>
+                  </td>
+                  <td *ngIf="!item.done">
+                    <button type="submit" (click)="changeState(item.id)" class="btn btn-secondary">In Progress</button>
+                  </td>
+                  <td>
+                    <button type="submit" (click)="deleteItem(item.id-1)" class="btn btn-danger">Delete</button>
+                    <button type="submit" (click)="emitItem(item)" class="btn btn-success ms-1" routerLink="/todo-item" routerLinkActive="active" ariaCurrentWhenActive="page">Details</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</router-outlet>
